@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>YouTube</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles/styles.css') }}"
+    />
+    <link
+      rel="icon"
+      href="{{ url_for('static', filename='assets/icon.png') }}"
+    />
+  </head>
+  <body>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" checked />
+    <div class="overlay" id="overlay"></div>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-inner">
+        <div style="height: 8px"></div>
+
+        <div class="nav-group top-group">
+          <ul class="nav-list">
+            <li>
+              <a href="https://www.youtube.com/" target="_blank">
+                <img
+                  src="{{ url_for('static', filename='assets/home.png') }}"
+                  alt="Home"
+                />
+                <span>Home</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.youtube.com/shorts" target="_blank">
+                <img
+                  src="{{ url_for('static', filename='assets/shorts.png') }}"
+                  alt="Shorts"
+                />
+                <span>Shorts</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.youtube.com/feed/subscriptions"
+                target="_blank"
+              >
+                <img
+                  src="{{ url_for('static', filename='assets/subscriptions.png') }}"
+                  alt="Subscriptions"
+                />
+                <span>Subscriptions</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="nav-group second-group">
+          <ul class="nav-list">
+            <li>
+              <a href="https://studio.youtube.com/channel/" target="_blank">
+                <img
+                  src="{{ url_for('static', filename='assets/your_videos.png') }}"
+                  alt="Your videos"
+                />
+                <span>Your videos</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.youtube.com/feed/playlists" target="_blank">
+                <img
+                  src="{{ url_for('static', filename='assets/playlists.png') }}"
+                  alt="Playlists"
+                />
+                <span>Playlists</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.youtube.com/playlist?list=LL"
+                target="_blank"
+              >
+                <img
+                  src="{{ url_for('static', filename='assets/liked.png') }}"
+                  alt="Liked"
+                />
+                <span>Liked</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.youtube.com/playlist?list=WL"
+                target="_blank"
+              >
+                <img
+                  src="{{ url_for('static', filename='assets/watch_later.png') }}"
+                  alt="Watch later"
+                />
+                <span>Watch later</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.youtube.com/feed/history" target="_blank">
+                <img
+                  src="{{ url_for('static', filename='assets/history.png') }}"
+                  alt="History"
+                />
+                <span>History</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.youtube.com/feed/downloads" target="_blank">
+                <img
+                  src="{{ url_for('static', filename='assets/downloads.png') }}"
+                  alt="Downloads"
+                />
+                <span>Downloads</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </aside>
+
+    <header class="main-header">
+      <div class="left-group">
+        <label for="nav-toggle" class="icon-btn hamburger-label">☰</label>
+        <a class="brand" href="#">
+          <img
+            src="{{ url_for('static', filename='assets/logo.png') }}"
+            alt="logo"
+            class="brand-logo"
+          />
+        </a>
+      </div>
+
+      <div class="center-group">
+        <div class="search-group">
+          <form
+            class="search-form"
+            action="https://www.youtube.com/results"
+            method="get"
+          >
+            <input type="search" name="search_query" placeholder="Search" />
+            <button type="submit" class="search-btn">
+              <img
+                src="{{ url_for('static', filename='assets/search.png') }}"
+                alt="Search"
+              />
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <div class="right-group">
+        <a
+          class="icon-btn"
+          href="https://studio.youtube.com/channel/"
+          target="_blank"
+        >
+          <img
+            src="{{ url_for('static', filename='assets/upload.png') }}"
+            alt="Upload"
+          />
+        </a>
+        <button id="notif-btn" class="icon-btn">
+          <img
+            src="{{ url_for('static', filename='assets/notif.png') }}"
+            alt="Notifications"
+          />
+        </button>
+        <a
+          class="user-btn"
+          href="https://myaccount.google.com/u/0/"
+          target="_blank"
+        >
+          <img
+            src="{{ url_for('static', filename='assets/user.jpg') }}"
+            alt="User"
+          />
+        </a>
+      </div>
+
+      <div id="notif-panel" class="notif-panel">
+        <div class="notif-header">Notifications</div>
+        <ul class="notif-list">
+          <li class="notif-item">No new notifications (mock)</li>
+        </ul>
+      </div>
+    </header>
+
+    <main class="content">
+      <div class="placeholder empty-search">
+        <h2 class="empty-title">Try searching to get started</h2>
+        <p class="empty-desc">
+          YouTube learns the more you watch. Start watching videos to help us
+          build a feed of videos you'll love.
+        </p>
+      </div>
+    </main>
+
+    <script>
+      const notifBtn = document.getElementById("notif-btn");
+      const notifPanel = document.getElementById("notif-panel");
+
+      function toggleNotif() {
+        const open = notifPanel.classList.toggle("open");
+        notifPanel.setAttribute("aria-hidden", open ? "false" : "true");
+      }
+
+      notifBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        toggleNotif();
+      });
+
+      document.addEventListener("click", (e) => {
+        if (!notifPanel.classList.contains("open")) return;
+        if (notifPanel.contains(e.target) || notifBtn.contains(e.target))
+          return;
+        notifPanel.classList.remove("open");
+        notifPanel.setAttribute("aria-hidden", "true");
+      });
+    </script>
+  </body>
+</html>
