@@ -191,12 +191,87 @@
     </header>
 
     <main class="content">
-      <div class="placeholder empty-search">
-        <h2 class="empty-title">Try searching to get started</h2>
-        <p class="empty-desc">
-          YouTube learns the more you watch. Start watching videos to help us
-          build a feed of videos you'll love.
-        </p>
+      <div class="videos">
+        <div class="video">
+          <a
+            href="https://www.youtube.com/watch?v=WIRK_pGdIdA&list=RDWIRK_pGdIdA&start_radio=1"
+          >
+            <div class="video-thumbnail">
+              <img
+                src="{{ url_for('static', filename='assets/video-img-1.jpg') }}"
+                alt=""
+                class="video-img"
+              />
+              <p class="video-time">1:00:00</p>
+            </div>
+            <div class="video-desc">
+              <p class="video-p">chip</p>
+              <div class="video-channel">
+                <img
+                  src="{{ url_for('static', filename='assets/video-channel-img-1.jpg') }}"
+                  alt=""
+                  class="channel-img"
+                />
+                <p class="channel-name">doober43</p>
+                <div class="video-specs">
+                  <p class="p-video-specs">58 mln views・3 years ago</p>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="video">
+          <a href="www.youtube.com/watch?v=DXUlaSYTLQI&t">
+            <div class="video-thumbnail">
+              <img
+                src="{{ url_for('static', filename='assets/video-img-2.jpg') }}"
+                alt=""
+                class="video-img"
+              />
+              <p class="video-time">3:26:46</p>
+            </div>
+            <div class="video-desc">
+              <p class="video-p">How to Install Linux From Scratch</p>
+              <div class="video-channel">
+                <img
+                  src="{{ url_for('static', filename='assets/video-channel-img-2.jpg') }}"
+                  alt=""
+                  class="channel-img"
+                />
+                <p class="channel-name">tony</p>
+                <div class="video-specs">
+                  <p class="p-video-specs">38k views・2 weeks ago</p>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="video">
+          <a href="https://www.youtube.com/watch?v=1yMozrDEqbg&t">
+            <div class="video-thumbnail">
+              <img
+                src="{{ url_for('static', filename='assets/video-img-3.jpg') }}"
+                alt=""
+                class="video-img"
+              />
+              <p class="video-time">4:16</p>
+            </div>
+            <div class="video-desc">
+              <p class="video-p">how to make pickle pepsi at home for free</p>
+              <div class="video-channel">
+                <img
+                  src="{{ url_for('static', filename='assets/video-channel-img-3.jpg') }}"
+                  alt=""
+                  class="channel-img"
+                />
+                <p class="channel-name">M&Jmetal</p>
+                <div class="video-specs">
+                  <p class="p-video-specs">5.8 mln views・2 months ago</p>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
       </div>
     </main>
 
